@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Talent Resource Tracker</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="resource_tracker">
+
+	<div id="banner">
+		<%= image_tag("trex_logo.gif") %>
+		<%= @page_title || "Talent Resource Tracker Database"%>
+	</div>
+	<div id="columns">
+		<div id="side">
+			<%= link_to "Home", "/" %><br />	
+			<%= link_to "Talents", talents_url %><br />	
+			<%= link_to "Types", types_url %>	<br />
+		</div>
+		<div id="main">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+author:
+  name: Author Dent
+  description: Uptight hero
+  phone: 123-123-1234
+  email: Mostly@harmless.earth
+  address: Uk, England
+  comments: Has his towel
+  type: tester
+  
+
+zaphod:
+  name: Zaphod
+  description: Has two heads
+  phone: 098-987-9877
+  email: space@man.com
+  address: The Heart of gold
+  comments: Just this guy
+  type: developer
+  skills: java, j2ee

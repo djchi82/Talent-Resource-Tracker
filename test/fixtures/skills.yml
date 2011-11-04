@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+508:
+  name: 508 Compliance
+  type: tester 
+  desc: Disability compliance testing.
+
+java:
+  name: JAVA
+  type: developer
+  desc: Can program Java
+
+j2ee:
+  name: J2EE
+  type: developer
+  desc: Java Enterprise 

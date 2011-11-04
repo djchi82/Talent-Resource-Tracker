@@ -1,0 +1,65 @@
+// Place all the styles related to the talent_resource controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Global styles */
+
+#resource_tracker #notice {
+        color: #000;
+        border: 2px solid red;
+        padding: 1em;
+        margin-bottom: 2em;
+        background-color: #f0f0f0;
+        font: bold smaller sans-serif;
+}
+
+
+#resource_tracker h1 {
+        font:  150% sans-serif;
+        color: #226;
+        border-bottom: 3px dotted #77d;
+}
+
+/* Styles for main page */
+
+#banner {
+  background: #247BB4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #000000;
+  text-align: center; 
+  overflow: auto; 
+}
+
+#banner img {
+  float: left;
+  
+}
+
+#columns {
+  background: #247BB4; 
+}
+
+#main {
+  margin-left: 17em;
+  padding-top: 4ex;
+  padding-left: 2em;
+  background: white; 
+  height: 700px; 
+}
+
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  width: 16em;
+  background: #E4801C;
+}
+
+#side a{
+  color: #bfb;
+  font-size: small;
+}

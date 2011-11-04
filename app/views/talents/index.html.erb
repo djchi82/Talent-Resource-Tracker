@@ -1,0 +1,37 @@
+<h1>Listing talents</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @talents.each do |talent| %>
+  <tr>
+    <td><%= talent.name %></td>
+    <td><%= talent.type.name %></td>
+    <td><%= talent.description %></td>
+    <td><%= talent.phone %></td>
+    <td><%= talent.email %></td>
+    <td><%= talent.address %></td>
+    <td><%= talent.comments %></td>
+    <td><%= link_to 'Show', talent %></td>
+    <td><%= link_to 'Edit', edit_talent_path(talent) %></td>
+    <td><%= link_to 'Destroy', talent, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Set Skills', talent_get_skills_path(talent), :action => :get_skills %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Talent', new_talent_path %>

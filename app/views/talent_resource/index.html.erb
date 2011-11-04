@@ -1,0 +1,21 @@
+<% if notice %>
+	<p id="notice"> <%= notice %></p>
+<% end %>
+
+<h1>The T-Rex Talent Resource Tracker Database</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @talents.each do |talent| %>
+			<tr>
+				<td><%= link_to talent.name, talent %></td>
+				<td><%= link_to talent.type.name, talent.type %></td>
+		<% end %>
+	</tbody>
+</table>

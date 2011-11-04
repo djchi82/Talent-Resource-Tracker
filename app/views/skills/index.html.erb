@@ -1,0 +1,27 @@
+<h1>Listing skills</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @skills.each do |skill| %>
+  <tr>
+    <td><%= skill.name %></td>
+    <td><%= link_to skill.type.name, skill.type %></td>
+    <td><%= skill.desc %></td>
+    <td><%= link_to 'Show', skill %></td>
+    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+    <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skill', new_skill_path %>

@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+tester:
+  name: Tester
+
+developer:
+  name: Developer
+
+scrum_master:
+  name: Scrum Master

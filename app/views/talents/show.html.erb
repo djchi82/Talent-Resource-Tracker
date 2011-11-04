@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @talent.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @talent.type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @talent.description %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @talent.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @talent.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @talent.address %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @talent.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_talent_path(@talent) %> |
+<%= link_to 'Back', talents_path %> |
+<%= link_to 'Set Skills', talent_get_skills_path(@talent), :action => :get_skills %>
+<h3> Skills</h3>
+<table>
+	<thead>
+		
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+	<%= render @talent.skills %>
+	
+	</tbody>
+</table>
