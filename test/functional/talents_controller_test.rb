@@ -49,35 +49,30 @@ class TalentsControllerTest < ActionController::TestCase
     assert_redirected_to talents_path
   end
   
-  test "should get skills" do
-    get :get_skills, :talent_id => @talent.to_param
-    assert_response :success
-  end
-  
   test "should set skills" do
     @talent.skills[0] = []
-    put :set_skills, :talent_id => @talent.to_param, :talent => @talent.attributes
+    put :update, :id => @talent.to_param, :talent => @talent.attributes
     assert_redirected_to talent_path(assigns(:talent))
   end
   
   test "should set skills minus one" do
     assert_difference('@talent.skills.count', -1) do
       
-      put :set_skills, :talent_id => @talent, :talent => @update.attributes
+      put :update, :id => @talent, :talent => @update.attributes
     end
     assert_redirected_to talent_path(assigns(:talent))
   end
 
   test "should set skills unset all" do
      @update.skills = []
-     put :set_skills, :talent_id => @talent, :talent => @update.attributes
+     put :update, :id => @talent, :talent => @update.attributes
      assert_redirected_to talent_path(assigns(:talent))
    end
   
   test "should set skills plus one" do
     assert_difference('@update.skills.count', -1) do
       
-      put :set_skills, :talent_id => @update, :talent => @talent.attributes
+      put :update, :id => @update, :talent => @talent.attributes
     end
     assert_redirected_to talent_path(assigns(:talent))
   end

@@ -74,10 +74,10 @@ class TypesController < ApplicationController
   def destroy
     @type = Type.find(params[:id])
     @type.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to types_url }
-      format.json { head :ok }
+        format.html { redirect_to types_url }
+        format.json { head :ok }
     end
   end
 end

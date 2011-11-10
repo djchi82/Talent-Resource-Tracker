@@ -8,3 +8,6 @@ developer:
 
 scrum_master:
   name: Scrum Master
+
+dotnet:
+  name: dotNet Developer

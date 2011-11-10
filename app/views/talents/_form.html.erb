@@ -14,13 +14,18 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+    </div>
   <div class="field">
     <%= f.label "Type" %><br />
     <%= f.select  :type_id, Type.all.collect {|t| [t.name, t.id]}, :prompt => 'Select a type' %>
   </div>
   <div class="field">
+    <%= f.label "Resume" %><br />
+    <%= f.file_field :resume %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :rows=> 5, :cols => 50 %>
   </div>
   <div class="field">
     <%= f.label :phone %><br />
@@ -32,13 +37,29 @@
   </div>
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_area :address %>
+    <%= f.text_area :address, :rows=> 5, :cols => 50 %>
   </div>
   <div class="field">
+    <%= f.label :tier %><br />
+    <%= f.text_field :tier %>
+    </div>
+    <div class="field">
+    <%= f.label :trex_contact %><br />
+    <%= f.text_field :trex_contact %>
+    </div>
+    <div class="field">
+    <%= f.label :interview_conducted %><br />
+    <%= f.select :interview_conducted, %w[true false], :prompt => '' %>
+    </div>
+  <div class="field">
     <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
+    <%= f.text_area :comments, :rows=> 5, :cols => 50 %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  <h4>Skills</h4>
+  
+  <%= render :partial => 'talents/associate_skills' %>
 <% end %>

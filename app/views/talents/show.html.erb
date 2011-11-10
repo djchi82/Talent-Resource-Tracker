@@ -11,6 +11,11 @@
 </p>
 
 <p>
+	<b>Resume:</b>
+	<%= talent_has_resume? %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @talent.description %>
 </p>
@@ -31,14 +36,28 @@
 </p>
 
 <p>
+  <b>Tier:</b>
+  <%= @talent.tier %>
+</p>
+
+<p>
+  <b>T-Rex Contact:</b>
+  <%= @talent.trex_contact %>
+</p>
+
+<p>
+  <b>Interview_Conducted:</b>
+  <%= @talent.interview_conducted %>
+</p>
+
+<p>
   <b>Comments:</b>
   <%= @talent.comments %>
 </p>
 
 
 <%= link_to 'Edit', edit_talent_path(@talent) %> |
-<%= link_to 'Back', talents_path %> |
-<%= link_to 'Set Skills', talent_get_skills_path(@talent), :action => :get_skills %>
+<%= link_to 'Back', talents_path %> 
 <h3> Skills</h3>
 <table>
 	<thead>

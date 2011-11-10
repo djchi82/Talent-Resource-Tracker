@@ -1,14 +1,13 @@
 TalentResourceTracker::Application.routes.draw do
+  resources :skill_sets
+
   resources :skills
 
   get "talent_resource/index"
 
   resources :types
 
-  resources :talents do
-    get :get_skills
-    put :set_skills
-  end
+  resources :talents
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <b>Type:</b>
-  <%= @skill.type_id %>
-</p>
-
-<p>
   <b>Desc:</b>
   <%= @skill.desc %>
 </p>
@@ -18,3 +13,33 @@
 
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
 <%= link_to 'Back', skills_path %>
+
+<h3>Associated Skill Sets</h3>
+<table >
+	<tr>
+		<td>
+			<h4>Skill Sets</h4>
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>Description</th>
+				</thead>
+				<tbody>
+					<%= render @skill.skill_sets%>
+				</tbody>
+			</table>
+		</td>
+		<td>
+			<h4>Talents</h4>
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>type</th>
+				</thead>
+				<tbody>
+					<%= render @skill.talents %>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table>

@@ -3,6 +3,7 @@ require 'test_helper'
 class TypesControllerTest < ActionController::TestCase
   setup do
     @type = types(:tester)
+    @type_destroy = types(:dotnet)
   end
 
   test "should get index" do
@@ -41,6 +42,14 @@ class TypesControllerTest < ActionController::TestCase
 
   test "should destroy type" do
     assert_difference('Type.count', -1) do
+      delete :destroy, :id => @type_destroy.to_param
+    end
+
+    assert_redirected_to types_path
+  end
+
+  test "should destroy type because talent is still assigned" do
+    assert_difference('Type.count', 0) do
       delete :destroy, :id => @type.to_param
     end
 

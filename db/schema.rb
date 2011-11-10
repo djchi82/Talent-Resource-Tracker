@@ -10,19 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101170140) do
+ActiveRecord::Schema.define(:version => 20111110191412) do
 
   create_table "skill_sets", :force => true do |t|
-    t.integer  "skill_id"
-    t.integer  "talent_id"
-    t.integer  "type_id"
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "skill_sets_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "skill_set_id"
+  end
+
   create_table "skills", :force => true do |t|
     t.string   "name",       :null => false
-    t.integer  "type_id",    :null => false
     t.text     "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20111101170140) do
   create_table "skills_talents", :id => false, :force => true do |t|
     t.integer "skill_id"
     t.integer "talent_id"
-    t.integer "type_id"
   end
 
   create_table "talents", :force => true do |t|
@@ -44,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20111101170140) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "type_id"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+    t.boolean  "interview_conducted"
+    t.string   "trex_contact"
+    t.string   "tier"
   end
 
   create_table "types", :force => true do |t|

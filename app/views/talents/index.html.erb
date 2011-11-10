@@ -12,13 +12,12 @@
     <th></th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @talents.each do |talent| %>
   <tr>
-    <td><%= talent.name %></td>
-    <td><%= talent.type.name %></td>
+    <td><%= link_to talent.name, talent %></td>
+    <td><%= link_to talent.type.name, talent.type %></td>
     <td><%= talent.description %></td>
     <td><%= talent.phone %></td>
     <td><%= talent.email %></td>
@@ -27,7 +26,6 @@
     <td><%= link_to 'Show', talent %></td>
     <td><%= link_to 'Edit', edit_talent_path(talent) %></td>
     <td><%= link_to 'Destroy', talent, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Set Skills', talent_get_skills_path(talent), :action => :get_skills %></td>
   </tr>
 <% end %>
 </table>

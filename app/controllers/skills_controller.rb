@@ -25,7 +25,6 @@ class SkillsController < ApplicationController
   # GET /skills/new.json
   def new
     @skill = Skill.new
-    @skill.type_id = params[:type_id]
     
     respond_to do |format|
       format.html # new.html.erb

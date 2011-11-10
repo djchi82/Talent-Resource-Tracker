@@ -9,22 +9,11 @@ class SkillTest < ActiveSupport::TestCase
   end
   
   test "skill is not valid without name" do
-    skill = Skill.new(:description => "Some desc",
-                      :type_id => 1)
+    skill = Skill.new(:desc => "Some desc")
         
      assert skill.invalid?
      
      skill.name = "java"
-     assert skill.valid?
-  end
-  
-  test "skill is not valid without type_id" do
-    skill = Skill.new(  :name => "java",
-                        :description => "Some desc")
-        
-     assert skill.invalid?
-     
-     skill.type_id = 1
      assert skill.valid?
   end
   

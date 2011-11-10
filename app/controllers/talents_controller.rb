@@ -58,11 +58,16 @@ class TalentsController < ApplicationController
   # PUT /talents/1.json
   def update
     @talent = Talent.find(params[:id])
-    @changed_type_id = params[:talent][:type_id]
     
-    if @talent.type_id.to_i != @changed_type_id.to_i
+    # Check if the array exists
+    if params[:talent][:skill_ids]
+      # Unset skills that have not been selected
+      params[:talent][:skill_ids] ||= []
+    else
+      # if the array doesn't exist then delete all the skills associated
+      # If it doesn't exist then the user un-checked all the skills
       @talent.skills.delete_all
-    end
+    end      
     
     respond_to do |format|
       if @talent.update_attributes(params[:talent])
@@ -86,32 +91,4 @@ class TalentsController < ApplicationController
       format.json { head :ok }
     end
   end
-
-  # put /talents/1/get_skills
-  def get_skills
-    @talent = Talent.find(params[:talent_id])
-  end
-  
-  #PUTS /talents/1
-  #PUTS /talents/1.json
-  def set_skills
-
-    @talent = Talent.find(params[:talent_id])    
-    begin
-      params[:talent][:skill_ids] ||= []  
-    rescue NoMethodError
-      @talent.skills.delete_all
-    end
-  
-    if @talent.update_attributes params[:talent]
-      redirect_to @talent
-    else
-      flash.now[:error] = @talent.errors
-      #setup_form_values
-      respond_to do |format|
-        format.html { render :action => get_skills }
-      end
-    end
-  end
-
 end

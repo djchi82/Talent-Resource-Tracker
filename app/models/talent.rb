@@ -1,7 +1,7 @@
 class Talent < ActiveRecord::Base
   belongs_to :type
   has_and_belongs_to_many :skills
-  
+  has_attached_file :resume
   
   #----------------------------------------------
   # Validation
