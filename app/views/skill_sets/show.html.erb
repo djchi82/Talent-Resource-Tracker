@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @skill_set.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @skill_set.description %>
+</p>
+
+<%= link_to 'Edit', edit_skill_set_path(@skill_set) %> |
+<%= link_to 'Back', skill_sets_path %>
+
+<h3>Skills</h3>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<%= render @skill_set.skills%>
+	</tbody>
+</table>
+

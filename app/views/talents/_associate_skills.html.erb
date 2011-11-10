@@ -1,0 +1,9 @@
+<table>
+	<% Skill.all.each do|skill| %>
+		<tr>
+			<td><%= check_box_tag 'talent[skill_ids][]', skill.id, has_skill?(skill, @talent.skills) %></td>
+			<td><%= skill.name %></td>
+		</tr>
+	<% end %>
+</table>
+

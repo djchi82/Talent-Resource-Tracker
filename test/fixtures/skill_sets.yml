@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+tester:
+  name: Tester
+  description: Test Skill set
+  skills: compliance
+  
+java_developer:
+  name: Java Developer 
+  description: Java Developer SKill set
+  skills: j2ee, java
