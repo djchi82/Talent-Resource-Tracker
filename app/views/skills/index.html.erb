@@ -1,25 +1,37 @@
 <h1>Listing skills</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div>
+	<%= form_tag skills_path, :method => 'get' do %>
+		<p>
+			<%= text_field_tag :name, params[:name] %>
+			<%= submit_tag "Search", :name => nil  %>
+		</p>
+	<% end %>
+</div>
 
-<% @skills.each do |skill| %>
-  <tr>
-    <td><%= link_to skill.name, skill %></td>
-    <td><%= skill.desc %></td>
-    <td><%= link_to 'Show', skill %></td>
-    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-    <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% if @skills %>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Desc</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @skills.each do |skill| %>
+	  <tr>
+	    <td><%= link_to skill.name, skill %></td>
+	    <td><%= skill.desc %></td>
+	    <td><%= link_to 'Show', skill %></td>
+	    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+	    <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	No Search Results
 <% end %>
-</table>
-
 <br />
 
 <%= link_to 'New Skill', new_skill_path %>

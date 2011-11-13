@@ -1,7 +1,7 @@
 class Skill < ActiveRecord::Base
   default_scope :order => 'name'
-  has_and_belongs_to_many :talents
-  has_and_belongs_to_many :skill_sets
+  has_and_belongs_to_many :talents    # foreign key skill_id to skills_talents table
+  has_and_belongs_to_many :skill_sets # foreign key skill_set_id to skill_sets_talents table
   
   before_destroy :ensure_not_referenced_by_any_talents
   
@@ -12,6 +12,17 @@ class Skill < ActiveRecord::Base
                     :presence => true,
                     :length => {:minimum => 1, :maximum => 254}
   
+  # ----------------------------------------
+  # methods 
+  # ----------------------------------------
+  
+  def self.search (name)
+    if name
+      find(:all, :conditions => ['name LIKE ?', "%#{name}%"])
+    else
+      find(:all)
+    end
+  end
   
   #-----------------------------------------
   # Private functions

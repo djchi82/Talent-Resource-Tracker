@@ -1,35 +1,22 @@
-<h1>Listing talents</h1>
+<h1>Listing Talents</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Address</th>
-    <th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div>
+	<%= form_tag talents_path, :method => 'get' do %>
+		<p>
+			<%= text_field_tag :name, params[:name] %>
+			<%= select_tag :type_id, options_from_collection_for_select(Type.all.collect, 'id', 'name', params[:type_id]), 
+					:prompt => 'All' %>
+			<%= submit_tag "Search", :name => nil  %>
+		</p>
+	<% end %>
+</div>
 
-<% @talents.each do |talent| %>
-  <tr>
-    <td><%= link_to talent.name, talent %></td>
-    <td><%= link_to talent.type.name, talent.type %></td>
-    <td><%= talent.description %></td>
-    <td><%= talent.phone %></td>
-    <td><%= talent.email %></td>
-    <td><%= talent.address %></td>
-    <td><%= talent.comments %></td>
-    <td><%= link_to 'Show', talent %></td>
-    <td><%= link_to 'Edit', edit_talent_path(talent) %></td>
-    <td><%= link_to 'Destroy', talent, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<div id='talents'>
+	
+	
+		<%= render :partial => 'talents/talents_index' %>
+		
+</div>
 <br />
 
 <%= link_to 'New Talent', new_talent_path %>

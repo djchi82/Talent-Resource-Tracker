@@ -2,7 +2,7 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+    @skills = Skill.search(params[:name])
 
     respond_to do |format|
       format.html # index.html.erb

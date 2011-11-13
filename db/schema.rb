@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110191412) do
+ActiveRecord::Schema.define(:version => 20111111001015) do
 
   create_table "skill_sets", :force => true do |t|
     t.string   "name"
@@ -19,10 +19,15 @@ ActiveRecord::Schema.define(:version => 20111110191412) do
     t.datetime "updated_at"
   end
 
+  add_index "skill_sets", ["name"], :name => "by_skill_set_id"
+  add_index "skill_sets", ["name"], :name => "by_skill_set_name"
+
   create_table "skill_sets_skills", :id => false, :force => true do |t|
     t.integer "skill_id"
     t.integer "skill_set_id"
   end
+
+  add_index "skill_sets_skills", ["skill_set_id", "skill_id"], :name => "by_skill_set_skill"
 
   create_table "skills", :force => true do |t|
     t.string   "name",       :null => false
@@ -31,10 +36,15 @@ ActiveRecord::Schema.define(:version => 20111110191412) do
     t.datetime "updated_at"
   end
 
+  add_index "skills", ["id"], :name => "by_skill_id"
+  add_index "skills", ["name"], :name => "by_skill_name"
+
   create_table "skills_talents", :id => false, :force => true do |t|
     t.integer "skill_id"
     t.integer "talent_id"
   end
+
+  add_index "skills_talents", ["skill_id", "talent_id"], :name => "by_skill_talent"
 
   create_table "talents", :force => true do |t|
     t.string   "name"
@@ -55,10 +65,16 @@ ActiveRecord::Schema.define(:version => 20111110191412) do
     t.string   "tier"
   end
 
+  add_index "talents", ["id", "type_id"], :name => "by_talent_type"
+  add_index "talents", ["name"], :name => "by_talent_name"
+
   create_table "types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "types", ["id"], :name => "by_type_id"
+  add_index "types", ["name"], :name => "by_type_name"
 
 end

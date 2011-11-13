@@ -1,5 +1,5 @@
 class Type < ActiveRecord::Base
-  has_many :talents 
+  has_many :talents  #Foriegn key type_id for type int he talents table
   
   before_destroy :ensure_not_referenced_by_any_talents
   

@@ -1,0 +1,34 @@
+	<% if @talents %>
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th>Type</th>
+		    <th>Description</th>
+		    <th>Phone</th>
+		    <th>Email</th>
+		    <th>Address</th>
+		    <th>Comments</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+
+	<% @talents.each do |talent| %>
+	  <tr>
+	    <td><%= link_to talent.name, talent %></td>
+	    <td><%= link_to talent.type.name, talent.type %></td>
+	    <td><%= talent.description %></td>
+	    <td><%= talent.phone %></td>
+	    <td><%= talent.email %></td>
+	    <td><%= talent.address %></td>
+	    <td><%= talent.comments %></td>
+	    <td><%= link_to 'Show', talent %></td>
+	    <td><%= link_to 'Edit', edit_talent_path(talent) %></td>
+	    <td><%= link_to 'Destroy', talent, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	
+</table>
+	<% else %>
+		No Search Results
+	<% end %>

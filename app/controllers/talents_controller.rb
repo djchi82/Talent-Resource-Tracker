@@ -2,10 +2,19 @@ class TalentsController < ApplicationController
   # GET /talents
   # GET /talents.json
   def index
-    @talents = Talent.all
-
+    
+    # Check that the params exist
+    if params[:name] && params[:type_id]
+      #if both the params exist then search
+      @talents = Talent.search(params[:name], params[:type_id])
+    else
+      # else return all the talents
+      @talents = Talent.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
+      format.js  
       format.json { render :json => @talents }
     end
   end
